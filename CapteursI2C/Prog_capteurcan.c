@@ -191,18 +191,18 @@ void Recupcapt (void const *argument)
 	while (1)
 	{
 		LED_Off(3);
-		presence1=read1byte0(0x78,0x03);
-		presence2=read1byte2(0x70,0x03);
+		presence1=read1byte0(0x70,0x03);
+		presence2=read1byte2(0x78,0x03);
 		if (presence1 <= 15) presence1 = 1;
 		else presence1 = 0;
 		if (presence2 <= 15) presence2 = 1;
 		else presence2 = 0;
 		sprintf(tab3,"Valeur : %02d%02d", presence1,presence2);
 	  GLCD_DrawString(10,10,tab3);
-		write1byte0(0x78,0x00,0x51);
-		write1byte2(0x70,0x00,0x51);
+		write1byte0(0x70,0x00,0x51);
+		write1byte2(0x78,0x00,0x51);
 		LED_On(3);
-			osDelay(100);
+		osDelay(100);
 
 	}
 
